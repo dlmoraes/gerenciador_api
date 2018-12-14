@@ -45,7 +45,7 @@ class DiarioRetrieveUpdateAPIView(RetrieveUpdateDestroyAPIView):
         partial = kwargs.pop('partial', False)
         instance = self.get_object()
         dados = request.data
-        print(dados)
+        # print(dados)
         conclusao = dados.get('dta_concl', None)
         if conclusao:
             dta_ocor = parse(dados['dta_ocor'])

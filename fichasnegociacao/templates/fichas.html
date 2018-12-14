@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+
+
+    <title>Ficha de Negociação</title>
+    <style>
+        .titulo {
+            padding: 5px;
+        }
+
+        .fichas {
+            padding-bottom: 5px;
+        }
+
+        .ficha {
+            padding: 10px;
+            border-style: solid;
+        }
+
+        .texto-centro {
+            text-align: center;
+        }
+
+        .subficha {
+            border-style: none solid solid solid;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .subficha .row:first-child {
+            padding-top: 10px;
+        }
+
+        .subficha .row:last-child {
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="titulo">
+        <h1 class="texto-centro">
+            <a href="/"><img class="float-left" src="http://www.equatorialenergia.com.br/images/logo-celpa.png"
+                             style='width: 70px; height: 50px;'/>
+            </a>
+            Ficha de Negociação
+        </h1>
+    </div>
+    {% for ficha in fichas %}
+
+
+
+        <div class="fichas">
+            <div class="ficha">
+                <div class="row">
+                    <div class="col-md-9">
+                        <b>Nome:</b> {{ ficha.nome }}
+                    </div>
+                    <div class="col-md-3">
+                        <b>UC:</b> {{ ficha.instalacao }} - {{ ficha.status_inst }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <b>Endereço:</b> {{ ficha.endereco }}
+                    </div>
+                    <div class="col-md-2">
+                        <b>TIPO:</b> {{ ficha.zona }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <b>Bairro:</b> {{ ficha.bairro }}
+                    </div>
+                    <div class="col-md-5">
+                        <b>Compl.:</b> {{ ficha.complemento }}
+                    </div>
+                    <div class="col-md-2">
+                        <b>Classe:</b> {{ ficha.classe }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <b>Cliente:</b> {{ ficha.cc }}
+                    </div>
+                    <div class="col-md-4">
+                        <b>E-mail:</b> {{ ficha.email }}
+                    </div>
+                    <div class="col-md-3">
+                        <b>Telefone:</b> {{ ficha.telefone }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <b>Referencia:</b> {{ ficha.referencia }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <b>Etapa:</b> {{ ficha.etapa }}
+                    </div>
+                    <div class="col-md-2">
+                        <b>BaixaRenda:</b> {{ ficha.e_baixarenda }}
+                    </div>
+                    <div class="col-md-2">
+                        <b>Seq.:</b> {{ ficha.sequencia }}
+                    </div>
+                    <div class="col-md-4">
+                        <b>Localidade:</b> {{ ficha.localidade }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <b>Medidor:</b> {{ ficha.medidor }}
+                    </div>
+                    <div class="col-md-4">
+                        <b>Unidade Leitura:</b> {{ ficha.unidade_leitura }}
+                    </div>
+                    <div class="col-md-4">
+                        <b>Responsável:</b> {{ ficha.responsavel }}
+                    </div>
+                </div>
+            </div>
+            <div class="subficha">
+                <div class="row">
+                    <div class="col-md-4">
+                        <b>Valor do Débito [{{ ficha.faturas }}]:</b> R$ {{ ficha.debito }}
+                    </div>
+                    <div class="col-md-4">
+                        <b>Valor do CNR:</b> R$ {{ ficha.cnr }}
+                    </div>
+                    <div class="col-md-4">
+                        <b>Valor do Total:</b> R$ {{ ficha.total }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <b>PDD+Perdas Cons:</b> R$ {{ ficha.pdd_perdas_consumo }}
+                    </div>
+
+                    <div class="col-md-4">
+                        <b>PDD+Perdas CNR:</b> R$ {{ ficha.pddperdas_cnr }}
+                    </div>
+                    <div class="col-md-4">
+                        <b>PDD+Perdas:</b> R$ {{ ficha.pddperdas }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <b>LF:</b> R$ {{ ficha.lf }}
+                    </div>
+                    <div class="col-md-4">
+                        <b>Bloq:</b> R$ {{ ficha.bloq }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+
+</div>
+</body>
+</html>
